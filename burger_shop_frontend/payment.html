@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-image: url('img/istockphoto-1309352410-1024x1024.jpg');
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ebdbbe;
+        }
+        .payment-methods img {
+            width: 50px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .success {
+            color: green;
+            font-size: 20px;
+        }
+        .pay-button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="paymentSelection">
+        <h2>Select a Payment Method</h2>
+        <div class="payment-methods">
+            <img src="img2/visa.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/BOC.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/Peoples.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/discover.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/ezcash.jpeg" alt="Visa" onclick="showCardForm()">
+            <img src="img2/genie.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/HNB.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/master.png" alt="Visa" onclick="showCardForm()">
+            <img src="img2/mcash.png" alt="Visa" onclick="showCardForm()">
+        </div>
+    </div>
+
+    <div class="container hidden" id="cardForm">
+        <h2>Credit / Debit Card</h2>
+        <input type="text" placeholder="Card Holder's Name"><br><br>
+        <input type="text" placeholder="Card Number"><br><br>
+        <input type="text" placeholder="Expiry Date" style="width: 48%;">
+        <input type="text" placeholder="CVV" style="width: 48%;"><br><br>
+        <button class="pay-button" onclick="processPayment()">Pay Rs.0.00</button>
+
+       
+    </div>
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          // Retrieve the total amount from localStorage
+          const total = localStorage.getItem("totalAmount");
+          const payButton = document.getElementById("pay-button");
+      
+          // Update the Pay button with the total
+          if (total) {
+            payButton.textContent = `Pay Rs.${parseFloat(total).toFixed(2)}`;
+          }
+        });
+      
+        function processPayment() {
+          alert("Payment Processed Successfully!");
+          // You can clear the localStorage after payment
+          localStorage.removeItem("totalAmount");
+        }
+      </script> -->
+
+<script>
+    // Get total amount from localStorage
+    const totalAmount = localStorage.getItem("totalAmount");
+  
+    // Display the total amount dynamically
+    if (totalAmount) {
+      document.querySelector(".pay-button").textContent = `Pay Rs.${totalAmount}`;
+    } else {
+      document.querySelector(".pay-button").textContent = "Pay Rs.0.00";
+    }
+  
+    function processPayment() {
+      if (totalAmount && totalAmount > 0) {
+        alert(`Payment of Rs.${totalAmount} approved!`);
+        // Clear totalAmount after payment
+        localStorage.removeItem("totalAmount");
+  
+        
+      } else {
+        alert("No amount to process. Please check your cart.");
+      }
+    }
+  </script>
+
+
+    <div class="container hidden" id="paymentSuccess">
+        <h2 class="success">✔ Payment Approved</h2>
+        <p>Payment ID: #320025046977</p>
+        <h1>Thank You for Your Order!</h1>
+  <p>Your payment has been successfully processed.</p>
+  <p>We hope you enjoy your delicious meal!</p>
+    </div>
+    
+    <script>
+        function showCardForm() {
+            document.getElementById('paymentSelection').classList.add('hidden');
+            document.getElementById('cardForm').classList.remove('hidden');
+        }
+
+        function processPayment() {
+            document.getElementById('cardForm').classList.add('hidden');
+            document.getElementById('paymentSuccess').classList.remove('hidden');
+            
+        }
+    </script>
+</body>
+</html>

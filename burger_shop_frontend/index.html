@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MOS Burgers - Order your favorite burgers online!">
+  <title>MOS Burgers</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>MOS Burgers</h1>
+      <ul>
+       <li><a href="#menu">Menu</a></li>
+        <li><a href="#order">BuyNow</a></li>
+        <li><a href="#cancel">CancelOrder</a></li>
+        <li><a href="#payment">PayByCard</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="background-image"></div>
+  <main>
+    <section id="menu" align="center">
+      <br>
+      <h2>Our Menu</h2>
+      <div id="menu-container"></div>
+      <table border="1" width="40%" align="center";>
+        <tr><td>
+      <img src="img/image1.png" alt="">
+        </td></tr>
+        <tr><td>
+      <img src="img/image2.png" alt="">
+    </td></tr>
+    <tr><td>
+      <img src="img/image3.png" alt="">
+    </td></tr>
+    <tr><td>
+      <img src="img/image4.png" alt="">
+    </td></tr>
+    </table>
+    </section>
+
+    <section id="order" align="center">
+      <br>
+        <h2>Place Your Order</h2> 
+
+        <img src="img/burger background.png" alt="">
+        <form id="order-form">
+          <label for="item">Select Items:</label>
+          <!-- Allow multiple selection -->
+          <select id="item" multiple>
+            <!-- Items will be dynamically populated -->
+          </select>
+          
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" min="1" value="1">
+      
+          <button type="button"  class="button" id="add-to-cart"  >Add to Cart</button>
+        </form>
+      </section>
+      
+
+    <section id="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">
+        
+        Total: Rs.0.00
+        </p>
+        
+      <!-- <button id="checkout"  class="button">Checkout</button> -->
+      
+      <!-- class="btn btn-outline-success" -->
+
+    </section>
+
+    
+
+    <section id="cancel" align="center">
+
+      <div class="container">
+        <br><br>
+        <h2>Order Management</h2>
+        <img src="img/burger background.png" alt="">
+        <div class="order-card">
+            <div>
+            
+            <div id="message"></div>
+          </div>
+          
+            <p>Status: <span id="order-status">Pending</span></p>
+            <button id="cancel-btn" class="button" >Cancel Order</button>
+        </div>
+        <div id="message"></div>
+        <br><br>
+        <h3><b>Thank you for joining with MOS Burgers, Come again..!</b></h3>
+    </div>
+      <br><br>
+      <hr>
+      <br>
+    </section>
+
+    <section id="payment" align="center">
+      <br>
+      <h2>Payment</h2>
+      <br>
+      <button id="checkout"  class="button">Checkout</button>
+      <!-- <a href="payment.html">Select a payment method to Click here..</a> -->
+      <br>
+      <br>
+      <p><img src="img/payment method.png" alt="payment">
+      <img src="img/online-payment-options.jpg" alt="online-payment-options" width="30%">
+      </p>
+      <br><br>
+      <hr>
+      <br>
+    </section>
+
+    <!-- Added About Section -->
+    <section id="about" align="center">
+      <br>
+      <h2>About Us</h2>
+      <p>Welcome to MOS Burgers! We specialize in delicious and fresh burgers made with quality ingredients. Our goal is to provide you with an amazing dining experience.</p>
+    <img src="img/burger3.jpeg" alt="" width="30%">
+    </section>
+
+    <!-- Added Contact Section -->
+    <section id="contact" align="center">
+      <br><br><br>
+      <h2>Contact Us</h2>
+      <p><h3>Phone: <a href="https://wa.me/+94760375176">+94760375176</a></h3></p>
+      <p><h3> contact: <a href="https://github.com/kavinda1996">@mosburgers.com</a></h3></p>
+      <p><h3>Address: <a href="https://maps.app.goo.gl/4SzHfiVGm8tNus836">123 Burger Lane, Food City</a></h3></p>
+      <img src="img/burger.jpeg" alt="" width="30%">
+     <hr>
+    </section>
+  </main>
+
+  <footer>
+    <h2>&copy; 2025 MOS Burgers. All rights reserved.</h2>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
